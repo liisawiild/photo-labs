@@ -13,13 +13,16 @@ const PhotoListItem = (props) => {
   const { data } = props;
 
   return (
-    <>
-    <img src={data.imageSource}/>
-    <img src={data.profile}/>
-    <h1>{data.username}</h1>
-    <h1>{data.location.city}, {data.location.country}</h1>
-    
-    </>
+    <article className="photo-list__item">
+      <img className="photo-list__image" src={data.imageSource}/>
+      <div className="photo-list__user-details">
+        <img className="photo-list__user-profile"src={data.profile}/>
+        <div>
+          <p className="photo-list__user-info">{data.username}</p>
+          <p className="photo-list__user-info photo-list__user-location" >{data.location.city}, {data.location.country}</p>
+        </div>
+      </div>
+    </article>
 
 
   )
