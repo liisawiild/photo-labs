@@ -1,6 +1,7 @@
 import React from 'react';
 
 import PhotoList from 'components/PhotoList';
+import TopNavigation from 'components/TopNavigationBar';
 import './App.scss';
 
 //sample data
@@ -15,6 +16,7 @@ const App = () => {
   return (
     <div className="App">
       {/* {photoItems} */}
+      <TopNavigation />
       <PhotoList />
     </div>
   );
