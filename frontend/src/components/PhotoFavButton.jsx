@@ -10,7 +10,7 @@ function PhotoFavButton() {
 
   const toggleFavourite = () => {
     console.log("toggled");
-    setIsFavourite(isFavourite === true ? false : true);
+    setIsFavourite(previsFavourite => !previsFavourite);
   }
 
   return (
