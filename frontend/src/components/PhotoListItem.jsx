@@ -4,7 +4,7 @@ import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
 
 /**
- * @params {username, imageSource, id, location, profile}
+ * @params {name, urls, id, location, profile}
  */
 
 
