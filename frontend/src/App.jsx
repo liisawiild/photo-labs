@@ -15,11 +15,11 @@ import './App.scss';
 const App = () => {
   const [displayModal, setDisplayModal] = useState(false);
   const [photoClicked, setPhotoClicked] = useState({});
-  console.log("displayModal state", displayModal);
-  console.log("photoClicked state", photoClicked);
+  // console.log("displayModal state", displayModal);
+  // console.log("photoClicked state", photoClicked);
 
   const handleModalOpen = (photoData) => {
-    console.log("photo clicked");
+    // console.log("photo clicked");
     const updatedState = true
     setDisplayModal(updatedState);
     setPhotoClicked(photoData);
@@ -34,7 +34,7 @@ const App = () => {
   return (
     <div className="App">
       <HomeRoute photos={photos} topics={topics} handleModalOpen={handleModalOpen}/>
-      <div>{displayModal && <PhotoDetailsModal handleModalClose={handleModalClose} photoClicked={photoClicked}/>}</div>
+      <div>{displayModal && <PhotoDetailsModal photos={photos} handleModalClose={handleModalClose} photoClicked={photoClicked}/>}</div>
     </div>
   );
 };

@@ -1,3 +1,15 @@
+// const photos = [
+//   {
+//     ...photo1,
+//     similar_photos: {
+//       photo2,
+//       photo3,
+//       photo4,
+//       photo5,
+//     }
+//   }
+// ]
+
 // const photo1 = {
 //   "id": "1",
 //   "location": {
@@ -29,13 +41,14 @@ import PhotoFavButton from "./PhotoFavButton";
 
 
 const PhotoListItem = (props) => {
-  const { photoData, updateFavourites, handleModalOpen } = props;
-  // console.log(data);
+  const { photoData, updateFavourites, handleModalOpen} = props;
+  // console.log("photoListItem photo data", photoData);
+
 
   return (
     <article className="photo-list__item">
       <PhotoFavButton photoData={photoData} updateFavourites={updateFavourites}/>
-      <img className="photo-list__image" src={photoData.urls.regular} onClick={() => handleModalOpen(photoData)}/>
+      {<img className="photo-list__image" src={photoData.urls.regular} onClick={() => handleModalOpen(photoData)}/>}
       <div className="photo-list__user-details">
         <img className="photo-list__user-profile"src={photoData.user.profile}/>
         <div className="photo-list__user-info">
@@ -43,7 +56,7 @@ const PhotoListItem = (props) => {
           <div className="photo-list__user-location" >{photoData.location.city}, {photoData.location.country}</div>
         </div>
       </div>
-    </article>
+    </article>    
   )
 };
 
