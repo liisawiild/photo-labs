@@ -29,12 +29,12 @@ import PhotoFavButton from "./PhotoFavButton";
 
 
 const PhotoListItem = (props) => {
-  const { photoData } = props;
+  const { photoData, updateFavourites } = props;
   // console.log(data);
 
   return (
     <article className="photo-list__item">
-      <PhotoFavButton />
+      <PhotoFavButton photoData={photoData} updateFavourites={updateFavourites}/>
       <img className="photo-list__image" src={photoData.urls.regular}/>
       <div className="photo-list__user-details">
         <img className="photo-list__user-profile"src={photoData.user.profile}/>
