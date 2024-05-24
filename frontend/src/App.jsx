@@ -13,25 +13,24 @@ import './App.scss';
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
-  const [photoClicked, setPhotoClicked] = useState(false);
-  console.log("photoClicked state", photoClicked);
+  const [displayModal, setDisplayModal] = useState(false);
+  console.log("displayModal state", displayModal);
 
-  const handlePhotoClick = () => {
+  const handleModalOpen = () => {
     console.log("photo clicked");
     const updatedState = true
-    setPhotoClicked(updatedState);
+    setDisplayModal(updatedState);
   }
 
   const handleModalClose = () => {
     const updatedState = false;
-    setPhotoClicked(updatedState);
+    setDisplayModal(updatedState);
   }
 
   return (
     <div className="App">
-      <HomeRoute photos={photos} topics={topics} handlePhotoClick={handlePhotoClick}/>
-      {console.log("photo clicked within return", photoClicked)}
-      <div>{photoClicked && <PhotoDetailsModal handleModalClose={handleModalClose} />}</div>
+      <HomeRoute photos={photos} topics={topics} handleModalOpen={handleModalOpen}/>
+      <div>{displayModal && <PhotoDetailsModal handleModalClose={handleModalClose} />}</div>
     </div>
   );
 };
