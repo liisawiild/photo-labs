@@ -16,16 +16,18 @@ const App = () => {
   const [displayModal, setDisplayModal] = useState(false);
   console.log("displayModal state", displayModal);
 
-  const handleModalOpen = () => {
+  const handleModalOpen = (photoData) => {
     console.log("photo clicked");
     const updatedState = true
     setDisplayModal(updatedState);
+    console.log(photoData);
   }
 
   const handleModalClose = () => {
     const updatedState = false;
     setDisplayModal(updatedState);
   }
+
 
   return (
     <div className="App">

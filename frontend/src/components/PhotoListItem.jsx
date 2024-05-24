@@ -35,7 +35,7 @@ const PhotoListItem = (props) => {
   return (
     <article className="photo-list__item">
       <PhotoFavButton photoData={photoData} updateFavourites={updateFavourites}/>
-      <img className="photo-list__image" src={photoData.urls.regular} onClick={() => handleModalOpen()}/>
+      <img className="photo-list__image" src={photoData.urls.regular} onClick={() => handleModalOpen(photoData)}/>
       <div className="photo-list__user-details">
         <img className="photo-list__user-profile"src={photoData.user.profile}/>
         <div className="photo-list__user-info">
