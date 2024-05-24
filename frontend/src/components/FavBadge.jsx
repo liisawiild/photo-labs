@@ -7,7 +7,7 @@ const FavBadge = ({ favouritedPhotos }) => {
 
   const onePhotoLiked = favouritedPhotos.length > 0 ? true : false;
 
-  console.log("FavBadge", favouritedPhotos.length);
+  // console.log("FavBadge", favouritedPhotos.length);
 
   return (
     <div className='fav-badge'>

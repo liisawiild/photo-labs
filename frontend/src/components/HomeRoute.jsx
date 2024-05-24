@@ -3,12 +3,11 @@ import TopNavigation from './TopNavigationBar';
 import PhotoList from './PhotoList';
 
 
-
 const HomeRoute = (props) => {
-  const {photos, topics} = props;
+  const {photos, topics, handlePhotoClick} = props;
 
-  const [favouritedPhotos, setFavouritedPhotos] = useState([]);
-  console.log(favouritedPhotos);
+  const [favouritedPhotos, setFavouritedPhotos] = useState([]);  
+  // console.log(favouritedPhotos);
 
   const updateFavourites = (photoId) => {
     //if photo is favourited already it means this photo is being unfavourited and should be removed
@@ -25,7 +24,7 @@ const HomeRoute = (props) => {
   return (
     <div className="home-route">
       <TopNavigation topics={topics} favouritedPhotos={favouritedPhotos}/>
-      <PhotoList photos={photos} updateFavourites={updateFavourites}/>
+      <PhotoList photos={photos} updateFavourites={updateFavourites} handlePhotoClick={handlePhotoClick}/>
     </div>
   )
 }
