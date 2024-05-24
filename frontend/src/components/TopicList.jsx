@@ -1,31 +1,22 @@
-import React from "react";
+// const topics = [
+//   {
+//     "id": "1",
+//     "slug": "topic-1",
+//     "title": "Nature"
+//   }
+// ]
 
+import React from "react";
 import "../styles/TopicList.scss";
 import TopicListItem from "./TopicListItem";
 
-const sampleDataForTopicList = [
-  {
-    id: "1",
-    slug: "topic-1",
-    title: "Nature",
-  },
-  {
-    id: "2",
-    slug: "topic-2",
-    title: "Travel",
-  },
-  {
-    id: "3",
-    slug: "topic-3",
-    title: "People",
-  },
-];
 
-const TopicList = () => {
-  const topics = sampleDataForTopicList.map((topic) => <TopicListItem key={topic.id} topic={topic} />)
+const TopicList = (props) => {
+  const {topics} = props;
+  const topicArr = topics.map((topic) => <TopicListItem key={topic.id} topicData={topic} />)
 
   return (
-    <div className="top-nav-bar__topic-list">{topics}</div>
+    <div className="top-nav-bar__topic-list">{topicArr}</div>
   );
 };
 
