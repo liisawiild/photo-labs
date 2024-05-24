@@ -49,7 +49,7 @@ const PhotoDetailsModal = (props) => {
       </button>
 
       <article className="photo-details-modal__images">
-        <PhotoFavButton photoClicked={photoClicked} />
+        <PhotoFavButton photoClicked={photoClicked}/>
         <img className="photo-details-modal__image" src={photoClicked.urls.full} />
         <div className="photo-details-modal__photographer-details">
           <img className="photo-details-modal__photographer-profile" src={photoClicked.user.profile} />
@@ -59,7 +59,7 @@ const PhotoDetailsModal = (props) => {
           </div>
         </div>
         <div className="photo-details-modal__header">Similar Photos</div>
-        <div className="phot-details-modal__images">
+        <div className="photo-details-modal__images">
           <PhotoList photos={similarPhotosArr} />
         </div>
       </article >
