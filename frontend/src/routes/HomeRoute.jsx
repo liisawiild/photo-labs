@@ -1,16 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import TopNavigation from '../components/TopNavigationBar';
 import PhotoList from '../components/PhotoList';
 
 
 const HomeRoute = (props) => {
-  const {photos, topics, handleModalOpen, favouritedPhotos, updateFavourites} = props;
-  console.log("HOMEROUTE--------", favouritedPhotos)
+  const {photos, topics, state, dispatch} = props;
 
   return (
     <div className="home-route">
-      <TopNavigation topics={topics} favouritedPhotos={favouritedPhotos}/>
-      <PhotoList photos={photos} updateFavourites={updateFavourites} handleModalOpen={handleModalOpen} favouritedPhotos={favouritedPhotos}/>
+      <TopNavigation topics={topics} state={state}/>
+      <PhotoList photos={photos} state={state} dispatch={dispatch}/>
     </div>
   )
 }
