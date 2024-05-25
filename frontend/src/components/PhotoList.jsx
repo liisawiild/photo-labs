@@ -35,12 +35,14 @@ import PhotoListItem from "./PhotoListItem";
 
 
 const PhotoList = (props) => {
-  const {photos, updateFavourites, handleModalOpen} = props;
-  const listPhotosArr = photos.map((photo) => <PhotoListItem key={photo.id} photoData={photo} updateFavourites={updateFavourites} handleModalOpen={handleModalOpen}/>)
+  const {photos, updateFavourites, handleModalOpen, favouritedPhotos} = props;
+  console.log("PhotoList favourited photos", favouritedPhotos)
+  const listPhotosArr = photos.map((photo) => <PhotoListItem key={photo.id} photoData={photo} updateFavourites={updateFavourites} handleModalOpen={handleModalOpen} favouritedPhotos={favouritedPhotos}/>)
   
   return (
     <ul className="photo-list">
       {listPhotosArr}
+      
     </ul>
   );
 };

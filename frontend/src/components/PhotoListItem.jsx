@@ -34,20 +34,16 @@ import React from "react";
 import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
 
-/**
- * @params {name, urls, id, location, profile}
- */
-
-
 
 const PhotoListItem = (props) => {
-  const { photoData, updateFavourites, handleModalOpen} = props;
+  const { photoData, updateFavourites, handleModalOpen, favouritedPhotos} = props;
+  console.log("PhotoListItem fav photos", favouritedPhotos)
   // console.log("photoListItem photo data", photoData);
 
 
   return (
     <article className="photo-list__item">
-      <PhotoFavButton photoData={photoData} updateFavourites={updateFavourites}/>
+      <PhotoFavButton photoData={photoData} updateFavourites={updateFavourites} favouritedPhotos={favouritedPhotos}/>
       {<img className="photo-list__image" src={photoData.urls.regular} onClick={() => handleModalOpen(photoData)}/>}
       <div className="photo-list__user-details">
         <img className="photo-list__user-profile"src={photoData.user.profile}/>

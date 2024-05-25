@@ -36,7 +36,8 @@ import PhotoList from 'components/PhotoList';
 import PhotoFavButton from 'components/PhotoFavButton';
 
 const PhotoDetailsModal = (props) => {
-  const { handleModalClose, photoClicked } = props;
+  const { handleModalClose, photoClicked, updateFavourites, favouritedPhotos } = props;
+  console.log("modal fav photos", favouritedPhotos);
 
   const similarPhotosArr = Object.values(photoClicked.similar_photos)
   // console.log("similar photos array", similarPhotosArr);
@@ -49,7 +50,7 @@ const PhotoDetailsModal = (props) => {
       </button>
 
       <article className="photo-details-modal__images">
-        <PhotoFavButton photoClicked={photoClicked}/>
+        <PhotoFavButton photoData={photoClicked} updateFavourites={updateFavourites} favouritedPhotos={favouritedPhotos}/>
         <img className="photo-details-modal__image" src={photoClicked.urls.full} />
         <div className="photo-details-modal__photographer-details">
           <img className="photo-details-modal__photographer-profile" src={photoClicked.user.profile} />
@@ -60,7 +61,7 @@ const PhotoDetailsModal = (props) => {
         </div>
         <div className="photo-details-modal__header">Similar Photos</div>
         <div className="photo-details-modal__images">
-          <PhotoList photos={similarPhotosArr} />
+          <PhotoList photos={similarPhotosArr} updateFavourites={updateFavourites} favouritedPhotos={favouritedPhotos}/>
         </div>
       </article >
     </div>

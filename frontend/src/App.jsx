@@ -15,6 +15,8 @@ import './App.scss';
 const App = () => {
   const [displayModal, setDisplayModal] = useState(false);
   const [photoClicked, setPhotoClicked] = useState({});
+  const [favouritedPhotos, setFavouritedPhotos] = useState([]);  
+  console.log("favourited photos", favouritedPhotos);
   // console.log("displayModal state", displayModal);
   // console.log("photoClicked state", photoClicked);
 
@@ -30,11 +32,20 @@ const App = () => {
     setDisplayModal(updatedState);
   }
 
+  const updateFavourites = (photoId) => {
+    console.log("photo being liked/unliked", photoId)
+    if (favouritedPhotos.includes(photoId)) {
+      const updatedState = favouritedPhotos.filter((id) => id !== photoId)
+      setFavouritedPhotos(updatedState);
+    } else {
+      setFavouritedPhotos([...favouritedPhotos, photoId]);
+    }
+  }
 
   return (
     <div className="App">
-      <HomeRoute photos={photos} topics={topics} handleModalOpen={handleModalOpen}/>
-      <div>{displayModal && <PhotoDetailsModal photos={photos} handleModalClose={handleModalClose} photoClicked={photoClicked}/>}</div>
+      <HomeRoute photos={photos} topics={topics} handleModalOpen={handleModalOpen} favouritedPhotos={favouritedPhotos} updateFavourites={updateFavourites}/>
+      <div>{displayModal && <PhotoDetailsModal photos={photos} handleModalClose={handleModalClose} photoClicked={photoClicked} updateFavourites={updateFavourites} favouritedPhotos={favouritedPhotos}/>}</div>
     </div>
   );
 };

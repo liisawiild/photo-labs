@@ -11,7 +11,7 @@ const FavBadge = ({ favouritedPhotos }) => {
 
   return (
     <div className='fav-badge'>
-      <FavIcon onePhotoLiked={onePhotoLiked} selected={true}/>
+      <FavIcon onePhotoLiked={onePhotoLiked} favouritedPhotos={favouritedPhotos} selected={true}/>
     </div>
   ) 
 };
