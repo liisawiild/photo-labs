@@ -10,24 +10,23 @@ const useApplicationData = () => {
     // console.log("photoClicked state", photoClicked);
 
     const updateFavourites = (photoId) => {
-      console.log("photo being liked/unliked", photoId)
+      // console.log("photo being liked/unliked", photoId)
       if (favouritedPhotos.includes(photoId)) {
-        const updatedState = favouritedPhotos.filter((id) => id !== photoId)
-        setFavouritedPhotos(updatedState);
+        const newFavouriteArr = [...favouritedPhotos]
+        setFavouritedPhotos(newFavouriteArr.filter((id) => id !== photoId));
       } else {
-        setFavouritedPhotos([...favouritedPhotos, photoId]);
+        const newFavouriteArr = [...favouritedPhotos, photoId]
+        setFavouritedPhotos(newFavouriteArr);
       }
     }
     const handleModalOpen = (photoData) => {
       // console.log("photo clicked");
-      const updatedState = true
-      setDisplayModal(updatedState);
+      setDisplayModal(true);
       setPhotoClicked(photoData);
     }
 
     const handleModalClose = () => {
-      const updatedState = false;
-      setDisplayModal(updatedState);
+      setDisplayModal(false);
     }
 
   return {
