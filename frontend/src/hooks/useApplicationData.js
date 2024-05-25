@@ -12,8 +12,7 @@ const useApplicationData = () => {
     const updateFavourites = (photoId) => {
       // console.log("photo being liked/unliked", photoId)
       if (favouritedPhotos.includes(photoId)) {
-        const newFavouriteArr = [...favouritedPhotos]
-        setFavouritedPhotos(newFavouriteArr.filter((id) => id !== photoId));
+        setFavouritedPhotos(favouritedPhotos.filter((id) => id !== photoId));
       } else {
         const newFavouriteArr = [...favouritedPhotos, photoId]
         setFavouritedPhotos(newFavouriteArr);
