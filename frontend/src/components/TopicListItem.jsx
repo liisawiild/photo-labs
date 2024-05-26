@@ -9,14 +9,15 @@
 
 import React from "react";
 import "../styles/TopicListItem.scss";
+import { ACTIONS } from '../hooks/useApplicationData'
 
 
 const TopicListItem = (props) => {
-  const { topicData } = props
+  const { topicData, state, dispatch } = props
   // console.log(topic);
 
   return (
-    <div className="topic-list__item span">{topicData.title}</div>
+    <div className="topic-list__item span" onClick={() => dispatch({type: ACTIONS.TOPIC_CLICKED, payload: topicData.id})}>{topicData.title}</div>
   );
 };
 

@@ -14,25 +14,39 @@ const App = () => {
     photoClicked: {}, 
     favouritedPhotos: [], 
     photoData: [], 
-    topicData: []
+    topicData: [], 
+    topicClicked: null,
   }
 
   const [state, dispatch] = useReducer(useApplicationData, initialState)
   // console.log(state.displayModal);
 
+  //consider promise.all?
+  //run on load
   useEffect(() => {
     fetch('/api/photos')
     .then(res => res.json())
-    .then(data => dispatch({type: ACTIONS.SET_PHOTO_DATA, payload: data}));
+    .then(data => dispatch({type: ACTIONS.SET_PHOTO_DATA, payload: data}))
+    .catch((err) => err);
   }, [])
 
   useEffect(() => {
     fetch('/api/topics')
     .then(res => res.json())
-    .then(data => dispatch({type: ACTIONS.SET_TOPIC_DATA, payload: data}));
+    .then(data => dispatch({type: ACTIONS.SET_TOPIC_DATA, payload: data}))
+    .catch((err) => err);
   }, [])
-  
 
+  //run only when topic clicked
+  useEffect(() => {
+    if (state.topicClicked) {
+      fetch(`/api/topics/photos/${state.topicClicked}`)
+      .then(res => res.json())
+      .then(data => dispatch({type: ACTIONS.GET_PHOTOS_BY_TOPICS, payload: data}))
+      .catch((err) => err);
+    }
+  }, [state.topicClicked])
+  
 
   return (
     <div className="App">

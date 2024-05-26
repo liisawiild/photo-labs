@@ -38,7 +38,7 @@ import {ACTIONS} from '../hooks/useApplicationData'
 
 const PhotoListItem = (props) => {
   const { photoData, state, dispatch} = props;
-  console.log("PhotoListItem fav photos", state.favouritedPhotos)
+  // console.log("PhotoListItem fav photos", state.favouritedPhotos)
   // console.log("photoListItem photo data", photoData);
 
 

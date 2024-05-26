@@ -9,11 +9,12 @@
 import React from "react";
 import "../styles/TopicList.scss";
 import TopicListItem from "./TopicListItem";
+import {ACTIONS} from '../hooks/useApplicationData' 
 
 
 const TopicList = (props) => {
-  const {topics} = props;
-  const topicArr = topics.map((topic) => <TopicListItem key={topic.id} topicData={topic} />)
+  const {topics, state, dispatch} = props;
+  const topicArr = topics.map((topic) => <TopicListItem key={topic.id} topicData={topic} state={state} dispatch={dispatch}/>)
 
   return (
     <div className="top-nav-bar__topic-list">{topicArr}</div>
