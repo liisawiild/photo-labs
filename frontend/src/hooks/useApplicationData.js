@@ -10,7 +10,7 @@ export const useApplicationData = (state, action) => {
     case 'FAV_PHOTO_ADDED':
       return {...state, favouritedPhotos: [...state.favouritedPhotos, action.payload]}
     case 'FAV_PHOTO_REMOVED':
-      return {...state, favouritedPhotos: state.favouritedPhotos.filter((id) => {id !== action.payload})}
+      return {...state, favouritedPhotos: state.favouritedPhotos.filter((id) => id !== action.payload)}
     case 'DISPLAY_MODAL':
       return {...state, displayModal: true, photoClicked: action.payload}
     case 'CLOSE_MODAL':
