@@ -27,14 +27,14 @@ const App = () => {
     fetch('/api/photos')
     .then(res => res.json())
     .then(data => dispatch({type: ACTIONS.SET_PHOTO_DATA, payload: data}))
-    .catch((err) => err);
+    .catch((err) => console.log(err));
   }, [])
 
   useEffect(() => {
     fetch('/api/topics')
     .then(res => res.json())
     .then(data => dispatch({type: ACTIONS.SET_TOPIC_DATA, payload: data}))
-    .catch((err) => err);
+    .catch((err) => console.log(err));
   }, [])
 
   //run only when topic clicked
@@ -43,7 +43,7 @@ const App = () => {
       fetch(`/api/topics/photos/${state.topicClicked}`)
       .then(res => res.json())
       .then(data => dispatch({type: ACTIONS.GET_PHOTOS_BY_TOPICS, payload: data}))
-      .catch((err) => err);
+      .catch((err) => console.log(err));
     }
   }, [state.topicClicked])
   
