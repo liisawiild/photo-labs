@@ -1,4 +1,3 @@
-
 export const ACTIONS = {
   FAV_PHOTO_ADDED: 'FAV_PHOTO_ADDED',
   FAV_PHOTO_REMOVED: 'FAV_PHOTO_REMOVED',
@@ -41,3 +40,11 @@ export const updateFavourites = (photoId, state, dispatch) => {
       dispatch({type: ACTIONS.FAV_PHOTO_ADDED, payload: photoId});
     }
   }
+
+//when a similar photo is clicked within the modal the photo's data will be updated to include it's similar_photos data
+export const getSimilarPhotosCompleteData = (state, photos) => {
+  const similarPhotosArr = Object.values(state.photoClicked.similar_photos);
+  const similarPhotoIdArr = similarPhotosArr.map((photo) => photo.id);
+  return photos.filter((photo) => similarPhotoIdArr.includes(photo.id));
+}
+

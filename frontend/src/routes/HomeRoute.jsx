@@ -15,5 +15,3 @@ const HomeRoute = (props) => {
 }
 
 export default HomeRoute;
-
-//STRETCH: could you add an on click event to close the modal if one is open, instead of having to click on the x specifically?
