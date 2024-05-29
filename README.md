@@ -8,6 +8,7 @@ Stretch ideas for future:
 1. Close modal with outside-modal click
 2. Open modal onClick of photo in similar photo section
 3. Heart in navbar click provides all liked photos
+4. Home page logo click reverts photolist to default
 
 *Photolabs Template Credits: [photolabs-starter](https://github.com/lighthouse-labs/photolabs-starter) by brainoflaraines.*
 
