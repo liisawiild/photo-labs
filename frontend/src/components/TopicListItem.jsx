@@ -13,11 +13,10 @@ import { ACTIONS } from '../hooks/useApplicationData'
 
 
 const TopicListItem = (props) => {
-  const { topicData, state, dispatch } = props
-  // console.log(topic);
+  const { topicData, dispatch } = props
 
   return (
-    <div className="topic-list__item span" onClick={() => dispatch({type: ACTIONS.TOPIC_CLICKED, payload: topicData.id})}>{topicData.title}</div>
+    <div className="topic-list__item span" onClick={() => dispatch({ type: ACTIONS.TOPIC_CLICKED, payload: topicData.id })}>{topicData.title}</div>
   );
 };
 

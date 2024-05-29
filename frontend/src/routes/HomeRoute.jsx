@@ -1,16 +1,15 @@
 import React from 'react';
 import TopNavigation from '../components/TopNavigationBar';
 import PhotoList from '../components/PhotoList';
-import {ACTIONS} from '../hooks/useApplicationData'
 
 
 const HomeRoute = (props) => {
-  const {photos, topics, state, dispatch} = props;
+  const { photos, topics, state, dispatch } = props;
 
   return (
     <div className="home-route">
-      <TopNavigation topics={topics} state={state} dispatch={dispatch}/>
-      <PhotoList photos={photos} state={state} dispatch={dispatch}/>
+      <TopNavigation topics={topics} state={state} dispatch={dispatch} />
+      <PhotoList photos={photos} state={state} dispatch={dispatch} />
     </div>
   )
 }

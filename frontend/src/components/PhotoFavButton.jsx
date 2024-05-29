@@ -1,8 +1,8 @@
 import React, { useCallback, useState, useEffect } from 'react';
-
 import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 import { updateFavourites } from '../hooks/useApplicationData'
+
 
 function PhotoFavButton(props) {
   const { photoData, state, dispatch } = props;

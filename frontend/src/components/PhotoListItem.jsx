@@ -30,30 +30,26 @@
 
 
 import React from "react";
-
 import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
-import {ACTIONS} from '../hooks/useApplicationData'
+import { ACTIONS } from '../hooks/useApplicationData'
 
 
 const PhotoListItem = (props) => {
-  const { photoData, state, dispatch} = props;
-  // console.log("PhotoListItem fav photos", state.favouritedPhotos)
-  // console.log("photoListItem photo data", photoData);
-
+  const { photoData, state, dispatch } = props;
 
   return (
     <article className="photo-list__item">
-      <PhotoFavButton photoData={photoData} state={state} dispatch={dispatch}/>
-      {<img className="photo-list__image" src={photoData.urls.regular} onClick={() => dispatch({type: ACTIONS.DISPLAY_MODAL, payload: photoData})}/>}
+      <PhotoFavButton photoData={photoData} state={state} dispatch={dispatch} />
+      {<img className="photo-list__image" src={photoData.urls.regular} onClick={() => dispatch({ type: ACTIONS.DISPLAY_MODAL, payload: photoData })} />}
       <div className="photo-list__user-details">
-        <img className="photo-list__user-profile"src={photoData.user.profile}/>
+        <img className="photo-list__user-profile" src={photoData.user.profile} />
         <div className="photo-list__user-info">
           {photoData.user.name}
           <div className="photo-list__user-location" >{photoData.location.city}, {photoData.location.country}</div>
         </div>
       </div>
-    </article>    
+    </article>
   )
 };
 

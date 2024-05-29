@@ -1,5 +1,3 @@
-import React from "react"
-import { useEffect } from "react"
 
 export const ACTIONS = {
   FAV_PHOTO_ADDED: 'FAV_PHOTO_ADDED',
@@ -41,8 +39,6 @@ export const useApplicationData = (state, action) => {
       throw new Error(`invalid action type ${action.type}`);
   }
 }
-
-
 
 export const updateFavourites = (photoId, state, dispatch) => {
   // console.log("photo being liked/unliked", photoId)

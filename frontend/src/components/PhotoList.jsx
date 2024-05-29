@@ -35,14 +35,13 @@ import PhotoListItem from "./PhotoListItem";
 
 
 const PhotoList = (props) => {
-  const {photos, state, dispatch } = props;
-  // console.log("PhotoList favourited photos", state.favouritedPhotos)
-  const listPhotosArr = photos.map((photo) => <PhotoListItem key={photo.id} photoData={photo} state={state} dispatch={dispatch}/>)
-  
+  const { photos, state, dispatch } = props;
+
+  const listPhotosArr = photos.map((photo) => <PhotoListItem key={photo.id} photoData={photo} state={state} dispatch={dispatch} />)
+
   return (
     <ul className="photo-list">
       {listPhotosArr}
-      
     </ul>
   );
 };
