@@ -10,13 +10,6 @@ export const ACTIONS = {
   TOPIC_CLICKED: 'TOPIC_CLICKED',
 }
 
-//should any reference to the previous state be prev?
-// In useApplicationData.js, you've done a good job defining your reducer
-// function and actions. However, it's not necessary to export useApplicationData
-// as a function. Instead, you could define it as a custom hook that returns the
-// state and dispatch function. This would allow you to encapsulate all the state
-// management logic within the hook, making your components cleaner and easier to
-// understand.
 export const useApplicationData = (state, action) => {
   switch (action.type) {
     case 'FAV_PHOTO_ADDED':
@@ -40,8 +33,8 @@ export const useApplicationData = (state, action) => {
   }
 }
 
+//when a photo's heart is clicked, depending on initial state it should fill or not fill and be added or removed from favouritedPhotos
 export const updateFavourites = (photoId, state, dispatch) => {
-  // console.log("photo being liked/unliked", photoId)
   if (state.favouritedPhotos.includes(photoId)) {
       dispatch({type: ACTIONS.FAV_PHOTO_REMOVED, payload: photoId});
     } else {

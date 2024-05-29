@@ -1,8 +1,7 @@
 import React from 'react';
-import '../styles/TopNavigationBar.scss'
 import TopicList from './TopicList';
 import FavBadge from './FavBadge'
-
+import '../styles/TopNavigationBar.scss'
 
 const TopNavigation = (props) => {
   const { topics, state, dispatch } = props;

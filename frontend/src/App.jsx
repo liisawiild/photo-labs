@@ -1,15 +1,12 @@
 import React, {useReducer, useEffect} from 'react';
 import HomeRoute from './routes/HomeRoute';
 import PhotoDetailsModal from './routes/PhotoDetailsModal';
-import './App.scss';
 import { useApplicationData, ACTIONS} from './hooks/useApplicationData';
+import './App.scss';
 
 
-// Note: Rendering a single component to build components in isolation
 const App = () => {
-  
   const initialState = {
-
     displayModal: false, 
     photoClicked: {}, 
     favouritedPhotos: [], 
@@ -19,25 +16,21 @@ const App = () => {
   }
 
   const [state, dispatch] = useReducer(useApplicationData, initialState)
-  // console.log(state.displayModal);
 
-  //consider promise.all?
-  //run on load
+  //fetches photos and topics data in one Promise
   useEffect(() => {
-    fetch('/api/photos')
-    .then(res => res.json())
-    .then(data => dispatch({type: ACTIONS.SET_PHOTO_DATA, payload: data}))
-    .catch((err) => console.log(err));
+    Promise.all([fetch('/api/photos'), fetch('/api/topics')])
+    .then((responses) => {
+      return Promise.all(responses.map(response => response.json()))
+    })
+    .then(([photosData, topicsData]) => {
+      dispatch({type: ACTIONS.SET_PHOTO_DATA, payload: photosData})
+      dispatch({type: ACTIONS.SET_TOPIC_DATA, payload: topicsData})
+    })
+    .catch((err) => console.log(err))
   }, [])
 
-  useEffect(() => {
-    fetch('/api/topics')
-    .then(res => res.json())
-    .then(data => dispatch({type: ACTIONS.SET_TOPIC_DATA, payload: data}))
-    .catch((err) => console.log(err));
-  }, [])
-
-  //run only when topic clicked
+  //listens for a topic to be clicked, uses the topic id to collect photo data for that topic to then populate photos on the page
   useEffect(() => {
     if (state.topicClicked) {
       fetch(`/api/topics/photos/${state.topicClicked}`)
@@ -47,11 +40,10 @@ const App = () => {
     }
   }, [state.topicClicked])
   
-
   return (
     <div className="App">
       <HomeRoute photos={state.photoData} topics={state.topicData} state={state} dispatch={dispatch}/>
-      <div>{state.displayModal && <PhotoDetailsModal photos={state.photoData} state={state} dispatch={dispatch}/>}</div>
+      <div>{state.displayModal && <PhotoDetailsModal photos={state.photoData} state={state} dispatch={dispatch} />}</div>
     </div>
   );
 };

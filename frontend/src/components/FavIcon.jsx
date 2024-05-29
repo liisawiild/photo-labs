@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 const FavIcon = (props) => {
   const { onePhotoLiked, selected } = props;
 

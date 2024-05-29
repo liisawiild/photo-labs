@@ -1,16 +1,6 @@
-// const topics = [
-//   {
-//     "id": "1",
-//     "slug": "topic-1",
-//     "title": "Nature"
-//   }
-// ]
-
-
 import React from "react";
-import "../styles/TopicListItem.scss";
 import { ACTIONS } from '../hooks/useApplicationData'
-
+import "../styles/TopicListItem.scss";
 
 const TopicListItem = (props) => {
   const { topicData, dispatch } = props

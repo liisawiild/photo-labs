@@ -42,26 +42,30 @@ const PhotoDetailsModal = (props) => {
   const similarPhotosArr = Object.values(state.photoClicked.similar_photos)
 
   return (
-    <div className="photo-details-modal">
-      <button className="photo-details-modal__close-button" onClick={() => dispatch({ type: ACTIONS.CLOSE_MODAL })}>
-        <img src={closeSymbol} alt="close symbol" />
-      </button>
+    <div className="photo-modal-backdrop">
+      <div className="photo-details-modal">
+        <button className="photo-details-modal__close-button" onClick={() => dispatch({ type: ACTIONS.CLOSE_MODAL })}>
+          <img src={closeSymbol} alt="close symbol" />
+        </button>
 
-      <article className="photo-details-modal__images">
-        <PhotoFavButton photoData={state.photoClicked} state={state} dispatch={dispatch} />
-        <img className="photo-details-modal__image" src={state.photoClicked.urls.full} />
-        <div className="photo-details-modal__photographer-details">
-          <img className="photo-details-modal__photographer-profile" src={state.photoClicked.user.profile} />
-          <div className="photo-details-modal__photographer-info">
-            {state.photoClicked.user.name}
-            <div className="photo-details-modal__photographer-location" >{state.photoClicked.location.city}, {state.photoClicked.location.country}</div>
+        <article className="photo-details-modal__images">
+          <PhotoFavButton photoData={state.photoClicked} state={state} dispatch={dispatch} />
+          <img className="photo-details-modal__image" src={state.photoClicked.urls.full} />
+          <div className="photo-details-modal__photographer-details">
+            <img className="photo-details-modal__photographer-profile" src={state.photoClicked.user.profile} />
+            <div className="photo-details-modal__photographer-info">
+              {state.photoClicked.user.name}
+              <div className="photo-details-modal__photographer-location" >{state.photoClicked.location.city}, {state.photoClicked.location.country}</div>
+            </div>
           </div>
-        </div>
-        <div className="photo-details-modal__header">Similar Photos</div>
-        <div className="photo-list">
-          <PhotoList photos={similarPhotosArr} state={state} dispatch={dispatch} />
-        </div>
-      </article >
+          <div className="photo-details-modal__header">Similar Photos</div>
+          <div className="photo-list">
+            <PhotoList photos={similarPhotosArr} state={state} dispatch={dispatch} />
+          </div>
+        </article >
+      </div>
+
+
     </div>
   )
 };

@@ -2,7 +2,6 @@ import React from 'react';
 import FavIcon from './FavIcon';
 import '../styles/FavBadge.scss';
 
-
 const FavBadge = (props) => {
   const { state } = props;
 
