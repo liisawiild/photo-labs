@@ -12,7 +12,7 @@ Stretch ideas for future:
 *Photolabs Template Credits: [photolabs-starter](https://github.com/lighthouse-labs/photolabs-starter) by brainoflaraines.*
 
 
-## Sneak Peak
+## Sneak Peek
 #### Home Page
 ![Homepage of the Photolabs App](frontend/public/screenshots/homeRoute.png)
 
