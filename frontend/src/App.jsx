@@ -24,6 +24,7 @@ const App = () => {
       return Promise.all(responses.map(response => response.json()))
     })
     .then(([photosData, topicsData]) => {
+      console.log("Photo data", photosData);
       dispatch({type: ACTIONS.SET_PHOTO_DATA, payload: photosData})
       dispatch({type: ACTIONS.SET_TOPIC_DATA, payload: topicsData})
     })

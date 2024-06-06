@@ -48,3 +48,9 @@ export const getSimilarPhotosCompleteData = (state, photos) => {
   return photos.filter((photo) => similarPhotoIdArr.includes(photo.id));
 }
 
+//when the favourites badge is clicked, pull favouritedPhotos data and dispatch it into the set_photo_data reducer
+export const getfavouritedPhotos = (state, photos, dispatch) => {
+  const favouritedPhotosList = photos.filter((photo) => state.favouritedPhotos.includes(photo.id));
+  dispatch({type: ACTIONS.SET_PHOTO_DATA, payload: favouritedPhotosList});
+}
+
