@@ -4,11 +4,13 @@ The goal for this project was to create an photo application using the React Lib
 
 This project provided the opportunity learn to use React components, hooks, states, custom hooks, all the while continuing to improve HTML, CSS, and JS skills. 
 
+Completed stretch goals:
+1. Heart in navbar click provides all liked photos
+
 Stretch ideas for future: 
 1. Close modal with outside-modal click
 2. Open modal onClick of photo in similar photo section
-3. Heart in navbar click provides all liked photos
-4. Home page logo click reverts photolist to default
+3. Home page logo click reverts photolist to default
 
 *Photolabs Template Credits: [photolabs-starter](https://github.com/lighthouse-labs/photolabs-starter) by brainoflaraines.*
 
